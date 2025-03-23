@@ -217,7 +217,8 @@ bool IdentifyEXE(const char * procName, bool isEditor, std::string * dllSuffix, 
 
 	//const UInt64 kCurVersion = 0x0001000A00780000;	// 1.10.120.0
 	//const UInt64 kCurVersion = 0x000100010000000C;	// 1.1.0.12
-	const UInt64 kCurVersion = 0x0001000100020007;	// 1.1.2.7
+	//const UInt64 kCurVersion = 0x0001000100020007;	// 1.1.2.7
+	const UInt64 kCurVersion = 0x0001000700120016;	// 1.7.18.6
 
 	// convert version resource to internal version format
 	//UInt32 versionInternal = MAKE_EXE_VERSION(version >> 48, version >> 32, version >> 16);
@@ -256,10 +257,10 @@ bool IdentifyEXE(const char * procName, bool isEditor, std::string * dllSuffix, 
 			GET_EXE_VERSION_MAJOR(versionInternal), GET_EXE_VERSION_MINOR(versionInternal), GET_EXE_VERSION_BUILD(versionInternal),
 			F4SE_VERSION_INTEGER, F4SE_VERSION_INTEGER_MINOR, F4SE_VERSION_INTEGER_BETA);*/
 			PrintLoaderError(
-				"You are using a newer version of Fallout than this version of SFE supports.\n"
+				"You are using a newer version of Fallout than this version of F76SE supports.\n"
 				"If this version just came out, please be patient while we update our code.\n"
 				"In the meantime, please check Nexus Mods for updates.\n"
-				"SFE-enhanced mod features will be unavailable for this session.\n"
+				"F76SE-enhanced mod features will be unavailable for this session.\n"
 				"Runtime: %d.%d.%d.%d\n"
 				"SFE: %d.%d.%d",
 				GET_EXE_VERSION_MAJOR(versionInternal), GET_EXE_VERSION_MINOR(versionInternal), GET_EXE_VERSION_BUILD(versionInternal), GET_EXE_VERSION_SUB(versionInternal),

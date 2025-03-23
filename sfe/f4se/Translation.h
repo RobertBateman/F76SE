@@ -1,5 +1,5 @@
 #pragma once
-
+#include <string>
 class BSScaleformTranslator;
 
 namespace Translation
