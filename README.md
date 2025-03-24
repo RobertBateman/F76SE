@@ -1,5 +1,6 @@
-# F76SE
+# F76 Script Extender
 F76SE is a project wholly based on SFE, which can be found at https://github.com/keretus/sfe
+
 The purpose of F76SE is to enable F4SE's Scaleform hook functionality to extend mod features in Fallout 76, which was possible in SFE until F76 update 23.
 This is NOT in any way a replacement for F4SE.
 If Keretus updates SFE, then this project will be scrapped.
