@@ -237,32 +237,21 @@ bool IdentifyEXE(const char * procName, bool isEditor, std::string * dllSuffix, 
 				"You are using Fallout version %d.%d.%d, which is out of date and incompatible with this version of F4SE. Update to the latest beta version.",
 				GET_EXE_VERSION_MAJOR(versionInternal), GET_EXE_VERSION_MINOR(versionInternal), GET_EXE_VERSION_BUILD(versionInternal));
 #else
-		/*PrintLoaderError(
-			"You are using Fallout version %d.%d.%d, which is out of date and incompatible with this version of F4SE. Update to the latest version.",
-			GET_EXE_VERSION_MAJOR(versionInternal), GET_EXE_VERSION_MINOR(versionInternal), GET_EXE_VERSION_BUILD(versionInternal));*/
 			PrintLoaderError(
-				"You are using Fallout 76 version %d.%d.%d.%d, which is out of date and incompatible with this version of SFE. Update to the latest version.\n"
-				"SFE-enhanced mod features will be unavailable for this session.",
+				"You are using Fallout 76 version %d.%d.%d.%d, which is newer than this version of F76SE. Update to the latest version.\n"
+				"F76SE features will be unavailable for this session.",
 				GET_EXE_VERSION_MAJOR(versionInternal), GET_EXE_VERSION_MINOR(versionInternal), GET_EXE_VERSION_BUILD(versionInternal), GET_EXE_VERSION_SUB(versionInternal));
 #endif
 	}
 	else if(version > kCurVersion)
 	{
-		/*PrintLoaderError(
-			"You are using a newer version of Fallout than this version of F4SE supports.\n"
-			"If this version just came out, please be patient while we update our code.\n"
-			"In the meantime, please check http://f4se.silverlock.org for updates.\n"
-			"Runtime: %d.%d.%d\n"
-			"F4SE: %d.%d.%d",
-			GET_EXE_VERSION_MAJOR(versionInternal), GET_EXE_VERSION_MINOR(versionInternal), GET_EXE_VERSION_BUILD(versionInternal),
-			F4SE_VERSION_INTEGER, F4SE_VERSION_INTEGER_MINOR, F4SE_VERSION_INTEGER_BETA);*/
 			PrintLoaderError(
 				"You are using a newer version of Fallout than this version of F76SE supports.\n"
 				"If this version just came out, please be patient while we update our code.\n"
 				"In the meantime, please check Nexus Mods for updates.\n"
-				"F76SE-enhanced mod features will be unavailable for this session.\n"
+				"F76SE features will be unavailable for this session.\n"
 				"Runtime: %d.%d.%d.%d\n"
-				"SFE: %d.%d.%d",
+				"F76SE: %d.%d.%d",
 				GET_EXE_VERSION_MAJOR(versionInternal), GET_EXE_VERSION_MINOR(versionInternal), GET_EXE_VERSION_BUILD(versionInternal), GET_EXE_VERSION_SUB(versionInternal),
 				F4SE_VERSION_INTEGER, F4SE_VERSION_INTEGER_MINOR, F4SE_VERSION_INTEGER_BETA);
 	}

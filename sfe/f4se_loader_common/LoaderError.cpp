@@ -15,6 +15,5 @@ void PrintLoaderError(const char * fmt, ...)
 	vsprintf_s(buf, sizeof(buf), fmt, args);
 	va_end(args);
 
-	//MessageBox(NULL, buf, "F4SE Loader", MB_OK | MB_ICONEXCLAMATION);
-	MessageBox(NULL, buf, "SFE", MB_OK | MB_ICONEXCLAMATION);
+	MessageBox(NULL, buf, "F76SE", MB_OK | MB_ICONEXCLAMATION);
 }

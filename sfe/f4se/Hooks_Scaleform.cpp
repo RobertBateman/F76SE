@@ -1185,7 +1185,7 @@ void Hooks_Scaleform_Commit()
 {
 	char logPath[MAX_PATH];
 	if (SUCCEEDED(SHGetFolderPathA(NULL, CSIDL_PERSONAL | CSIDL_FLAG_CREATE, NULL, NULL, logPath))) {
-		strcat_s(logPath, "\\My Games\\Fallout 76\\SFE\\SFEDebug.log");
+		strcat_s(logPath, "\\My Games\\Fallout 76\\F76SE\\F76SEDebug.log");
 		logger.open(logPath);
 	}
 	/*UInt32	logScaleform = 0;

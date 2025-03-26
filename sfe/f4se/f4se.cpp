@@ -61,7 +61,7 @@ void F4SE_Initialize(void)
 	if(isInit) return;
 	isInit = true;
 
-	gLog.OpenRelative(CSIDL_MYDOCUMENTS, "\\My Games\\Fallout 76\\SFE\\sfe.log");
+	gLog.OpenRelative(CSIDL_MYDOCUMENTS, "\\My Games\\Fallout 76\\F76SE\\F76SE.log");
 
 	if (!checkFalloutVersion())
 		return;
@@ -75,7 +75,7 @@ void F4SE_Initialize(void)
 		FILETIME	now;
 		GetSystemTimeAsFileTime(&now);
 
-		_MESSAGE("SFE runtime: initialize (version = %d.%d.%d %08X %08X%08X, os = %s)",
+		_MESSAGE("F76SE runtime: initialize (version = %d.%d.%d %08X %08X%08X, os = %s)",
 			F4SE_VERSION_INTEGER, F4SE_VERSION_INTEGER_MINOR, F4SE_VERSION_INTEGER_BETA, RUNTIME_VERSION,
 			now.dwHighDateTime, now.dwLowDateTime, GetOSInfoStr().c_str());
 
@@ -234,13 +234,20 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 
 		dllHandle = hModule;
 		originalModule = LoadLibraryA(path);
-		CreateDXGIFactory_Original = reinterpret_cast<_CreateDXGIFactory> (GetProcAddress(originalModule, "CreateDXGIFactory"));
-		CreateDXGIFactory1_Original = reinterpret_cast<_CreateDXGIFactory> (GetProcAddress(originalModule, "CreateDXGIFactory1"));
-		CreateDXGIFactory2_Original = reinterpret_cast<_CreateDXGIFactory2>(GetProcAddress(originalModule, "CreateDXGIFactory2"));
-		DXGID3D10CreateDevice_Original = reinterpret_cast<_DXGID3D10CreateDevice>(GetProcAddress(originalModule, "DXGID3D10CreateDevice"));
-		DXGID3D10CreateLayeredDevice_Original = reinterpret_cast<_DXGID3D10CreateLayeredDevice>(GetProcAddress(originalModule, "DXGID3D10CreateLayeredDevice"));
-		DXGID3D10GetLayeredDeviceSize_Original = reinterpret_cast<_DXGID3D10GetLayeredDeviceSize>(GetProcAddress(originalModule, "DXGID3D10GetLayeredDeviceSize"));
-		DXGID3D10RegisterLayers_Original = reinterpret_cast<_DXGID3D10RegisterLayers>(GetProcAddress(originalModule, "DXGID3D10RegisterLayers"));
+
+		if (originalModule != 0) {
+			CreateDXGIFactory_Original = reinterpret_cast<_CreateDXGIFactory> (GetProcAddress(originalModule, "CreateDXGIFactory"));
+			CreateDXGIFactory1_Original = reinterpret_cast<_CreateDXGIFactory> (GetProcAddress(originalModule, "CreateDXGIFactory1"));
+			CreateDXGIFactory2_Original = reinterpret_cast<_CreateDXGIFactory2>(GetProcAddress(originalModule, "CreateDXGIFactory2"));
+			DXGID3D10CreateDevice_Original = reinterpret_cast<_DXGID3D10CreateDevice>(GetProcAddress(originalModule, "DXGID3D10CreateDevice"));
+			DXGID3D10CreateLayeredDevice_Original = reinterpret_cast<_DXGID3D10CreateLayeredDevice>(GetProcAddress(originalModule, "DXGID3D10CreateLayeredDevice"));
+			DXGID3D10GetLayeredDeviceSize_Original = reinterpret_cast<_DXGID3D10GetLayeredDeviceSize>(GetProcAddress(originalModule, "DXGID3D10GetLayeredDeviceSize"));
+			DXGID3D10RegisterLayers_Original = reinterpret_cast<_DXGID3D10RegisterLayers>(GetProcAddress(originalModule, "DXGID3D10RegisterLayers"));
+		}
+		else {
+			_ERROR("DllMain DLL_PROCESS_ATTACH: originalModule was 0.");
+		}
+		
 		break;
 
 	case DLL_PROCESS_DETACH:
