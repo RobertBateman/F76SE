@@ -324,7 +324,11 @@ _BSScaleformTint BSScaleformTint_Original = nullptr;
 //RelocAddr <uintptr_t> ScaleformInitHook_Start(0x2792195);
 //RelocAddr <uintptr_t> ScaleformInitHook_Start(0x2828105);
 //RelocAddr <uintptr_t> ScaleformInitHook_Start(0x27BB2F5);
-RelocAddr <uintptr_t> ScaleformInitHook_Start(0x2867B05);
+//RelocAddr <uintptr_t> ScaleformInitHook_Start(0x2867B05);
+
+RelocAddr <uintptr_t> ScaleformInitHook_Start(0x22BACB0); // Init@System@GFx@Scaleform
+//RelocAddr <uintptr_t> ScaleformInitHook_Start(0x22BB9B0);
+//RelocAddr <uintptr_t> ScaleformInitHook_Start(0x22BB640);
 
 RelocAddr <uintptr_t> IMenuCreateHook_Start(0x02042310 + 0x90A);
 
