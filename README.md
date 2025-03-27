@@ -1,3 +1,5 @@
+NOTE: Keretus has now updated the original SFE, so this repo will now be archived.
+
 # F76 Script Extender
 F76SE is a project wholly based on SFE, which can be found at https://github.com/keretus/sfe
 
